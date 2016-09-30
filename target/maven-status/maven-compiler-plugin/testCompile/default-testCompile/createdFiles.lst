@@ -1,0 +1,6 @@
+edu/csumb/cst438fa16hello/DayOfWeekTest.class
+feature/webclient/HelloWebclientSteps.class
+edu/csumb/cst438fa16hello/webclient/HelloIT.class
+feature/day/DayTest.class
+feature/day/DaySteps.class
+feature/webclient/HelloWebclientIT.class

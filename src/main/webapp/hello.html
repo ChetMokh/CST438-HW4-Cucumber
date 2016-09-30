@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+<title>Hello</title>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<body>
+
+
+<div>
+  
+  Enter an integer?
+  <input id="inputInt" type="number" autofocus />
+  <button id="submitInt" onclick="outputInt()">Submit Integer</button>
+</div>
+Squared number is:
+<div id="outputInt">
+  <!-- output goes here -->
+</div>
+
+<script>
+// fills in <span id="today">...</span> with today's day of the week
+// returned from /rest/today server endpoint
+function today() {
+  $.get("/rest/today", function(theday) {
+      $("#today").text(theday);
+    });
+};
+
+
+
+// fills in <div id="outputInt">...</div> with the output
+
+// returned from calling the /rest/hello?inout=... server endpoint
+
+// with the output of calculation
+
+function outputInt() {
+  var theInput = $("#inputInt").val();
+  $.get("/rest/calculate", { input: theInput }, function(theOutput) {
+      $("#outputInt").text(theOutput);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+       
+       alert("wrong input");
+      
+     });
+  
+}
+
+$(today); // execute today() after DOM is ready, see https://api.jquery.com/ready/
+</script>
+
+</body>
+</html>
+
